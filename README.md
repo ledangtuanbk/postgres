@@ -22,3 +22,13 @@ create or replace function textsearch(x text) returns text as
         return lower(unaccent(x));
       end;
   $$ language plpgsql;
+
+# create textsearchlike
+create function textsearchlike(x text) returns text
+    language plpgsql
+as
+$$
+begin return textsearch(concat('%',x,'%')); end;
+$$;
+
+alter function textsearchlike(text) owner to postgres;
