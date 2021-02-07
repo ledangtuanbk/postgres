@@ -32,3 +32,20 @@ begin return textsearch(concat('%',x,'%')); end;
 $$;
 
 alter function textsearchlike(text) owner to postgres;
+
+# Docker compose docker-compose.yml
+```
+version: '3.3'
+services:
+    postgres:
+        container_name: CONTAINER_NAME
+        restart: always
+        environment:
+            - POSTGRES_PASSWORD=1
+        ports:
+            - '5432:5432'
+        volumes:
+            - 'VOLUME_NAME:/var/lib/postgresql/data'
+            - '/mnt/backup:/backup'
+        image: 'ledangtuanbk/postgres:9.6'
+```        
