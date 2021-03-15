@@ -8,7 +8,7 @@ and add previous line to .bashrc file
 
 # start docker
 ```
-docker run --name postgres --restart=always -e POSTGRES_PASSWORD=1 --detach -p 5432:5432 --volume $POSTGRES_HOME/data:/var/lib/postgresql/data --volume /mnt/backup:/backup ledangtuanbk/postgres:9.6
+docker run --name postgres --restart=always -e POSTGRES_PASSWORD=1 --detach -p 5432:5432 --volume $POSTGRES_HOME/data:/var/lib/postgresql/data --volume $POSTGRES_HOME/backup:/backup ledangtuanbk/postgres:9.6
 ```
 
 # Create database 
