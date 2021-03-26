@@ -23,7 +23,7 @@ docker exec -t $CONTAINER_NAME pg_dump -U postgres --no-owner -Fc $DB_NAME -f /b
 
 # restore database
 ```
-docker exec -t CONTAINER_NAME pg_restore -U postgres -d DB_NAME -1 /backup/backup_file.dmp
+docker exec -t $CONTAINER_NAME pg_restore -U postgres -d $DB_NAME -1 /backup/backup_file.dmp
 ```
 
 # create extentions 
