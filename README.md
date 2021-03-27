@@ -14,6 +14,7 @@ docker run --name postgres --restart=always -e POSTGRES_PASSWORD=1 --detach -p 5
 # Create database 
 ```
 CREATE DATABASE "DB_NAME" WITH OWNER "postgres" ENCODING 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8' TEMPLATE template0;
+docker exec -it postgres  createdb -T template0 -E UNICODE -O postgres -U postgres test
 ```
 
 # Backup database
