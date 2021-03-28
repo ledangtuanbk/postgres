@@ -19,12 +19,12 @@ docker exec -it postgres  createdb -T template0 -E UNICODE -O postgres -U postgr
 
 # Backup database
 ```
-docker exec -t $CONTAINER_NAME pg_dump -U postgres --no-owner -Fc $DB_NAME -f /backup/${DB_NAME}_dump_$(date +%Y%m%d"_"%H%M%S).dmp
+docker exec -t $CONTAINER_NAME pg_dump -U postgres --no-owner -Fc $DB_NAME -f /backup/${DB_NAME}_dump_$(date +%Y%m%d"_"%H%M%S).dump
 ```
 
 # restore database
 ```
-docker exec -t $CONTAINER_NAME pg_restore --if-exists  --clean -U postgres -d $DB_NAME -1 /backup/backup_file.dmp
+docker exec -t $CONTAINER_NAME pg_restore --if-exists  --clean -U postgres -d $DB_NAME -1 /backup/backup_file.dump
 ```
 
 # create extentions 
