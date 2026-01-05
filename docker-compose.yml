@@ -1,13 +1,16 @@
-version: '3.3'
 services:
-    postgres:
-        container_name: postgres
-        restart: always
-        environment:
-            - POSTGRES_PASSWORD=1
-        ports:
-            - '5432:5432'
-        volumes:
-            - '$POSTGRES_HOME/data:/var/lib/postgresql/data'
-            - '$POSTGRES_HOME/backup:/backup'
-        image: 'ledangtuanbk/postgres:9.6'
+  db:
+    image: postgres:17.4
+    container_name: postgres_17
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1
+      POSTGRES_DB: VerdicthubDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
